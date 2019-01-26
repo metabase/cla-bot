@@ -53,6 +53,6 @@ Check out https://github.com/organizations/metabase/settings/apps/YOUR_APP_NAME/
 
 ### License
 
-Copyright © 2010 Metabase, Inc.
+Copyright © 2019 Metabase, Inc.
 
 Distributed under the [Eclipse Public License](https://raw.githubusercontent.com/metabase/toucan/master/LICENSE.txt), same as Clojure.
