@@ -49,7 +49,7 @@ aws lambda update-function-code \
 
 ## GitHub App debugging
 
-Check out https://github.com/organizations/metabase/settings/apps/<app-name>/advanced
+Check out https://github.com/organizations/metabase/settings/apps/YOUR_APP_NAME/advanced
 
 ### License
 
