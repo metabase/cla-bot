@@ -5,14 +5,14 @@ Source code for the Metabase GitHub CLA bot. Create a GitHub app and Google Shee
 ## Env vars
 
 ```bash
-GITHUB_CORE_CONTRIBUTORS_WHITELIST # i.e. camsaul,tlrobinson
+GITHUB_CORE_CONTRIBUTORS_WHITELIST # e.g. camsaul,tlrobinson
 GITHUB_INSTALLATION_ID # ID of GitHub app installation in given repo
 GITHUB_PRIVATE_KEY # generate private key for app and copy source of PEM file here
-GITHUB_REPO # i.e. metabase/metabase
+GITHUB_REPO # e.g. metabase/metabase
 GOOGLE_CLIENT_ID # Create an Google API client and then go thru OAuth steps in browser/REPL
 GOOGLE_CLIENT_SECRET
 GOOGLE_REFRESH_TOKEN
-GOOGLE_SHEET_RANGE # i.e. 'Form Responses 1'!H2:H5000
+GOOGLE_SHEET_RANGE # e.g. 'Form Responses 1'!H2:H5000
 GOOGLE_SPREADSHEET_ID # look in URL of Google Sheet
 ```
 
