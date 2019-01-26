@@ -20,9 +20,6 @@
     (logs/log (for [arg args]
                [(class arg) arg]))))
 
-#_(defn -main []
-  (logs/log "HELLO WORLD!"))
-
 ;; TODO - it seems a lot of the stuff actually comes in in the paylod
 #_(defn- body->config [{{installation-id :id} :installation
                       {repo :full_name}     :repository}]
@@ -30,8 +27,6 @@
    :github-repo            repo})
 
 (defn handle-event [{:keys [body]}]
-  #_(logs/log "EVENT ::")
-  #_(pprint/pprint event)
   (logs/with-logs
     (try
       (let [body   (json/parse-string body keyword)
@@ -44,7 +39,6 @@
                       {:updated-pr pr-num
                        :logs       (logs/logs)})})
       (catch Throwable e
-        (logs/log e)
         {:statusCode 500
          :headers    {:Content-Type "application/json"}
          :body       (json/generate-string
@@ -55,8 +49,6 @@
                                      (str frame))})}))))
 
 (defn -handleRequest [this, ^InputStream input-stream, ^OutputStream output-stream, ^Context context]
-  #_(logs/log "CONTEXT ::")
-  #_(pprint/pprint context)
   (with-open [reader (io/reader input-stream)]
     (let [event    (json/parse-stream reader keyword)
           response (handle-event event)]
