@@ -12,9 +12,9 @@
 
 (defonce ^:dynamic ^{:doc "List of sources to look for (in order) for configuration values. You can change this value
   to change where config values may be resolved from; for example, if you define a new source, you can add it to the
-    list of places to check here."}
-    *sources*
-    (atom [:env :secretsmanager]))
+  list of places to check here."}
+  *sources*
+  (atom [:env :secretsmanager]))
 
 
 (defmulti parse
