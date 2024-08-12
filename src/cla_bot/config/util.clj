@@ -1,6 +1,7 @@
 (ns cla-bot.config.util
   (:require [clojure.spec.alpha :as s]
-            [clojure.string :as str])
+            [clojure.string :as str]
+            [cla-bot.config.aws :refer [fetch-secret]])
   (:import java.text.NumberFormat))
 
 ;; Overcomplicated! But I wanted to experiment with some ideas I had that might make it into Metabase core.
@@ -13,7 +14,7 @@
   to change where config values may be resolved from; for example, if you define a new source, you can add it to the
   list of places to check here."}
   *sources*
-  (atom [:env]))
+  (atom [:env :secretsmanager]))
 
 
 (defmulti parse
@@ -62,6 +63,12 @@
 ;; Fetch value from environment variable -- the only default source
 (defmethod value :env [_ k klass not-found]
   (if-let [v (System/getenv (config-env-var k))]
+    (parse klass v)
+    not-found))
+
+;; Fetch value from AWS Secrets Manager
+(defmethod value :secretsmanager [_ k klass not-found]
+  (if-let [v (fetch-secret (config-env-var k))]
     (parse klass v)
     not-found))
 
